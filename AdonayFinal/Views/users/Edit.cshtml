@@ -1,0 +1,124 @@
+﻿@model AdonayFinal.Models.user
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+<style>
+    body {
+        font-family: 'Times New Roman', sans-serif;
+        font-size: large;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        color: #333;
+    }
+
+    .form-horizontal {
+        margin: 100px 0;
+        margin-top: 70px;
+        background-color: #A4A4A4;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .control-label {
+        font-weight: bold;
+    }
+
+    .btn-default {
+        background-color: #4C4C4C;
+        color: #B7B7B7;
+        border: 3px solid #428bca;
+        padding: 10px 10px;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 10px;
+    }
+
+        .btn-default:hover {
+            background-color: #B7B7B7;
+        }
+
+    .back-link {
+        margin-top: 50px;
+        color: #666;
+        display: inline-block;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+        .back-link:hover {
+            color: #428bca;
+        }
+</style>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>user</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.user_id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.firstname, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.firstname, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.firstname, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lastname, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.lastname, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.lastname, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

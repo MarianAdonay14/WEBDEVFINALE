@@ -1,0 +1,104 @@
+﻿@model AdonayFinal.Models.user
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<style>
+    body {
+        font-family: 'Times New Roman', sans-serif;
+        font-size: large;
+        background-color: #ffffff;
+       text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    h2 {
+        color: #333;
+    }
+
+    .dl-horizontal {
+        margin-left: 30%;
+        margin-top: 100px;
+        margin-bottom: 10%;
+        width: 40%;
+        background-color: #A4A4A4;
+        padding: 20px;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+        .dl-horizontal dt {
+            font-weight: bold;
+        }
+
+        .dl-horizontal dd {
+            margin-bottom: 10px;
+            text-align: left;
+        }
+    .action-links {
+        border: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100px;
+        text-align: center;
+    }
+
+        .action-links a {
+            margin-right: 10px;
+            color: #666666;
+        }
+    a edit , back stop list{
+        background-color: #4C4C4C;
+        color: #B7B7B7;
+        border: 3px solid #428bca;
+        padding: 10px 20px;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 10px;
+    }
+</style>
+<div>
+    <h4>User Information</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.firstname) :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastname) :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email) :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password) :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.user_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
